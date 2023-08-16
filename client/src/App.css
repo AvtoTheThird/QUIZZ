@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+}
+#root {
+  text-align: center;
+}
+body {
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+nav {
+  background-color: grey;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.join-room {
+  padding-bottom: 25px;
+  margin: auto;
+  width: 50%;
+  margin-top: 20px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.choosen {
+  background-color: green;
+}
+.correct {
+  background-color: green;
+}
+.wrong {
+  background-color: red;
+}
+/* CSS */
+.button-27 {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  outline: none;
+  padding: 8px 12px;
+  max-width: 150px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button-27:disabled {
+  pointer-events: none;
+}
+
+.button-27:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.register-login {
+  margin: auto;
+  width: 50%;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.register {
+  margin: auto;
+  width: 50%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login {
+  margin: auto;
+  width: 50%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.submit-button {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  /* box-sizing: border-box; */
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  outline: none;
+  padding: 8px 12px;
+  max-width: 150px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  margin-left: 40%;
+}
+.submit-button:disabled {
+  pointer-events: none;
+}
+
+.submit-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.join-a-room {
+  height: 250px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  margin: auto;
+  width: 50%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+}
+.acc-info {
+  height: 250px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  margin: auto;
+  width: 50%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+}
+.spacer {
+  height: 75px;
+}
+.create-a-room {
+  margin: auto;
+  width: 50%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+}
+.question-box {
+  margin: 15px;
+  padding: 15px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.questions {
+  padding-left: 35px;
+  padding-right: 35px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+/* input[type="checkbox"] {
+  margin-left: auto;
+} */
+.quest {
+  display: flex;
+}
+.results {
+  margin: auto;
+  margin-top: 25px;
+  width: 50%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.grey {
+  color: grey;
+}
+img {
+  height: 15px;
+}
+.incorrect {
+  background-color: red;
+}
