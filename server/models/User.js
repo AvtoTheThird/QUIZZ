@@ -13,11 +13,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // takenRoom: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "Room",
-  //   choosenAnswers: [{ type: Number }],
-  // },
 });
 
 const UserModel = mongoose.model("User", UserSchema);

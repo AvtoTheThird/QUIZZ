@@ -30,7 +30,7 @@ export default function Acc() {
       (res) => {
         console.log(res.data);
         if (res.data == 1) {
-          // history("/JoinRoom", { state: { id: joinId, userId: id } });
+          history("/JoinRoom", { state: { id: joinId, userId: id } });
         } else if (res.data == 2) {
           alert("number Of Allowed Attempts exausted");
         } else {

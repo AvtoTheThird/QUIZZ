@@ -18,70 +18,79 @@ export default function Results() {
   useEffect(() => {
     setScore(x);
   }, [x]);
-  console.log(roomQuestions[1]._id);
+  console.log();
 
-  // setTimeout(() => {
-  //   const userID = roomQuestions[1]._id;
-  //   const roomid = roomQuestions[0]._id;
-  //   Axios.post("http://localhost:3001/setScore", {
-  //     id: userID,
-  //     roomid: roomid,
-  //     score: x,
-  //   });
-  // }, 500);
   const func = () => {
     x++;
   };
-  // console.log(roomQuestions[0]._id);
+
   return (
     <div>
-      <button onClick={goToAcc}>
-        <a href="/Acc">acc</a>
-      </button>
-      <h1>Results</h1>
-      <h3>roomid: {roomID}</h3>
-      {roomQuestions[0].questions.map((val, i) => {
-        return (
-          <div className="results">
-            <h2>{val.question}</h2>
-            {roomQuestions[0].questions[i].answers.map((val1, j) => {
-              // console.log(val1);
-              if (val1.tru && answers[i] == j) {
-                return (
-                  func(),
-                  (
-                    <div className="correct">
-                      <p>
-                        {val1.text} <img src={icon} alt="" />
-                      </p>
-                    </div>
-                  )
-                );
-              } else if (!val1.tru && answers[i] == j) {
-                return (
-                  <div>
-                    <p className="incorrect">{val1.text}</p>
-                  </div>
-                );
-              } else if (val1.tru) {
-                return (
-                  <div className="correct">
-                    <p>
-                      {val1.text} <img src={icon} alt="" />
-                    </p>
-                  </div>
-                );
-              } else {
-                return (
-                  <div>
-                    <p className="grey">{val1.text}</p>
-                  </div>
-                );
-              }
-            })}
-          </div>
-        );
-      })}
+      {roomQuestions[0].showCorrectAnsswersOnSubmit ? (
+        <div>
+          {" "}
+          <button onClick={goToAcc}>
+            <a href="/Acc">acc</a>
+          </button>
+          <h1>Results</h1>
+          <h3>roomid: {roomID}</h3>
+          {roomQuestions[0].questions.map((val, i) => {
+            return (
+              <div className="results">
+                <h2>{val.question}</h2>
+                {roomQuestions[0].questions[i].answers.map((val1, j) => {
+                  // console.log(val1);
+                  if (val1.tru && answers[i] == j) {
+                    return (
+                      func(),
+                      (
+                        <div className="correct">
+                          <p>
+                            {val1.text} <img src={icon} alt="" />
+                          </p>
+                        </div>
+                      )
+                    );
+                  } else if (!val1.tru && answers[i] == j) {
+                    return (
+                      <div>
+                        <p className="incorrect">{val1.text}</p>
+                      </div>
+                    );
+                  } else if (val1.tru) {
+                    return (
+                      <div className="correct">
+                        <p>
+                          {val1.text} <img src={icon} alt="" />
+                        </p>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div>
+                        <p className="grey">{val1.text}</p>
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div>
+          <h1>
+            room creator has turned off the ability to see correct answers
+          </h1>
+
+          <h2>
+            your score is:{x}/{roomQuestions[0].questions.length}
+          </h2>
+          <button onClick={goToAcc}>
+            <a href="/Acc">acc</a>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

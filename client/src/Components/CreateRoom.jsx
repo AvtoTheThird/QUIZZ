@@ -93,7 +93,7 @@ export default function CreateRoom() {
   const sendData = () => {
     Axios.post("http://localhost:3001/createRoom", {
       numberOfAllowedAttempts: NOAA,
-      SCAOS: SCAOS,
+      showCorrectAnsswersOnSubmit: SCAOS,
       owner: userID,
       name: roomName,
       questions: data,
@@ -121,11 +121,12 @@ export default function CreateRoom() {
   const handleSCAOSchange = () => {
     setSCAOS(!SCAOS);
   };
+  console.log(SCAOS);
   return (
     <div className="create-a-room">
-      <a onClick={goToAcc} href="/Acc">
+      <button className="submit-button" onClick={goToAcc} href="/Acc">
         go back
-      </a>
+      </button>
       <h1>lets create room </h1>
 
       <input
@@ -182,11 +183,17 @@ export default function CreateRoom() {
           {data[i].answers.length > 2 ? (
             <button onClick={() => deleteAnswer(i)}>remove answer</button>
           ) : null}
-          <button onClick={() => addAnswer(i)}>Add answer</button>
-          <button onClick={() => deleteQuestion(i)}>Delete question</button>
+          <button className="button-27" onClick={() => addAnswer(i)}>
+            Add answer
+          </button>
+          <button className="button-27" onClick={() => deleteQuestion(i)}>
+            Delete question
+          </button>
         </div>
       ))}
-      <button onClick={sendData}>submit</button>
+      <button className="submit-button" onClick={sendData}>
+        submit
+      </button>
       <p>{JSON.stringify(data)}</p>
     </div>
   );

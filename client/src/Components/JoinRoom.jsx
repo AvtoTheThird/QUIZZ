@@ -81,13 +81,12 @@ export default function JoinRoom() {
   if (loaded) {
     return (
       <div>
-        <button onClick={goToAcc}>
-          <a href="/Acc">acc</a>
+        <button className="button-27" onClick={goToAcc}>
+          go back
         </button>
         room joined: {roomID}
         <div>
           <h4>room owner:{roomQuestions[1].email}</h4>
-          <h3>questions: </h3>
           {roomQuestions[0].questions.map((val, i) => (
             <div className="join-room" key={val._id}>
               <h2 key={val._id}>{val.question}: </h2>
@@ -95,6 +94,7 @@ export default function JoinRoom() {
                 <div className="questions">
                   <p>{val1.text}</p>
                   <input
+                    className="checkbox"
                     type="checkbox"
                     onChange={handleAnswers.bind(this, j, i)}
                   />{" "}
@@ -103,7 +103,9 @@ export default function JoinRoom() {
             </div>
           ))}
         </div>
-        <button onClick={results}>submit</button>
+        <button className="button-27" onClick={results}>
+          submit
+        </button>
         {/* {roomQuestions[0].questions.map((val, i) => {
           {
             roomQuestions[0].questions[i].answers.map((val1, j) => {
