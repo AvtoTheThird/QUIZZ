@@ -8,6 +8,8 @@ export default function CreateRoom() {
   const location = useLocation();
   const [roomName, setRoomName] = useState("");
   const [userID, setUserID] = useState("");
+  const [NOAA, setNOAA] = useState(1);
+  const [SCAOS, setSCAOS] = useState(false);
   const [data, setData] = useState([
     {
       question: "",
@@ -84,8 +86,14 @@ export default function CreateRoom() {
   const handleRoomNameChange = (e) => {
     setRoomName(e.target.value);
   };
+
+  const handleNOAAchange = (e) => {
+    setNOAA(e.target.value);
+  };
   const sendData = () => {
     Axios.post("http://localhost:3001/createRoom", {
+      numberOfAllowedAttempts: NOAA,
+      SCAOS: SCAOS,
       owner: userID,
       name: roomName,
       questions: data,
@@ -110,11 +118,11 @@ export default function CreateRoom() {
   const goToAcc = () => {
     history("/Acc", { state: { id: userid } });
   };
+  const handleSCAOSchange = () => {
+    setSCAOS(!SCAOS);
+  };
   return (
     <div className="create-a-room">
-      {/* <button >
-        <a onClick={goToAcc} href="/Acc">go back</a>
-      </button> */}
       <a onClick={goToAcc} href="/Acc">
         go back
       </a>
@@ -127,6 +135,17 @@ export default function CreateRoom() {
         value={roomName}
         onChange={(e) => handleRoomNameChange(e)}
       />
+      <p>
+        number of attempts allowed{" "}
+        <input
+          type="number"
+          name="NOAA"
+          value={NOAA}
+          onChange={(e) => handleNOAAchange(e)}
+        />
+        show corrent answers on submit{" "}
+        <input type="checkbox" onChange={handleSCAOSchange} />
+      </p>
       <button className="submit-button" onClick={addQuestion}>
         Add question
       </button>

@@ -24,16 +24,22 @@ export default function Acc() {
       // console.log(res.data);
     });
   }, []);
-  console.log(usersRooms);
+  // console.log(usersRooms);
   const joinRoom = () => {
-    Axios.post("http://localhost:3001/checkRoom", { joinId }).then((res) => {
-      if (res.data == 1) {
-        history("/JoinRoom", { state: { id: joinId, userId: id } });
-      } else {
-        alert("wrong ID");
+    Axios.post("http://localhost:3001/checkRoom", { joinId, id }).then(
+      (res) => {
+        console.log(res.data);
+        if (res.data == 1) {
+          // history("/JoinRoom", { state: { id: joinId, userId: id } });
+        } else if (res.data == 2) {
+          alert("number Of Allowed Attempts exausted");
+        } else {
+          alert("wrong ID");
+        }
       }
-    });
+    );
   };
+  console.log(joinId, id);
 
   const goToDetails = (id, name) => {
     history("/RoomOverview", { state: { id: id, roomName: name } });

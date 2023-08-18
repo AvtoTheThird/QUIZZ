@@ -11,6 +11,7 @@ const roomSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
   questions: [
     {
       question: {
@@ -26,11 +27,15 @@ const roomSchema = new mongoose.Schema({
     },
   ],
 
-  users: {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    choosenAnswers: { type: Array },
-    score: { type: Number },
-  },
+  users: [
+    {
+      user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      choosenAnswers: { type: Array },
+      score: { type: Number },
+    },
+  ],
+  numberOfAllowedAttempts: { type: Number },
+  showCorrectAnsswersOnSubmit: { type: Boolean },
 });
 
 const roomModel = mongoose.model("Room", roomSchema);

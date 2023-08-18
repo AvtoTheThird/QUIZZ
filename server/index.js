@@ -22,7 +22,6 @@ app.post("/RegisterUser", async (req, res) => {
 
 app.post("/createRoom", async (req, res) => {
   console.log(req.body);
-
   try {
     const room = req.body;
     const newRoom = await roomModel(room);
@@ -82,11 +81,29 @@ app.post("/getUserRooms", async (req, res) => {
   }
 });
 app.post("/checkRoom", async (req, res) => {
+  const userName = req.body.id;
+  const roomID = req.body.joinId;
+  const roomData = await roomModel.findById(roomID);
+  const userData = await UserModel.findOne({ name: [userName] });
+  const userId = userData._id;
+  let count = 0;
+  if (roomData.users.length > 0) {
+    for (let index = 0; index < roomData.users.length; index++) {
+      if (JSON.stringify(roomData.users[0].user) == JSON.stringify(userId)) {
+        count++;
+      }
+    }
+  }
+
   try {
     const roomId = req.body.joinId;
 
     if (await roomModel.findById(roomId)) {
-      res.json(1);
+      if (count > roomData.numberOfAllowedAttempts) {
+        res.json(2);
+      } else if (count < roomData.numberOfAllowedAttempts) {
+        res.json(1);
+      }
     } else {
       res.json(0);
     }
@@ -122,16 +139,15 @@ app.delete("/deleteRoom/:id", async (req, res) => {
 });
 
 app.post("/takenQuizz", async (req, res) => {
-  console.log("takenQuizz START");
   const roomid = req.body.roomid;
   const userid = req.body.id;
   const choosenAnswers = req.body.choosenAnswers;
   const score = req.body.score;
 
   const usersSubdocument = {
-    score: score,
     user: req.body.id,
     choosenAnswers: choosenAnswers,
+    score: score,
   };
 
   try {
@@ -148,36 +164,9 @@ app.post("/takenQuizz", async (req, res) => {
 
     console.log("Room updated with user and choosenAnswers:", updatedRoom);
   } catch (err) {
-    // console.error("Error:", err);
+    console.log(err);
   }
-  console.log("takenQuizz STOP");
 });
-
-// app.post("/setScore", async (req, res) => {
-//   console.log("setScore START");
-
-//   const roomid = req.body.roomid;
-//   const score = req.body.score;
-//   const userid = req.body.userID;
-//   console.log(req.body);
-//   try {
-//     const updatedRoom = await roomModel.findOneAndUpdate(
-//       { _id: roomid, "users.user": userid },
-//       { $set: { "users.$.score": score } },
-//       { new: true, arrayFilters: [{ "elem.user": userid }] }
-//     );
-
-//     if (!updatedRoom) {
-//       console.log("Room or user not found");
-//       return;
-//     }
-
-//     console.log("Score set for user in the room");
-//   } catch (err) {
-//     console.error("Error:", err);
-//   }
-//   console.log("setScore STOP");
-// });
 
 app.listen(3001, () => {
   console.log("runing");

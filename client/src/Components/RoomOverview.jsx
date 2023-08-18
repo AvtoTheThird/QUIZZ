@@ -18,18 +18,19 @@ export default function RoomOverview() {
       setLoaded(true);
     });
   }, []);
-  console.log(roomQuestions);
+  // console.log(roomQuestions[0].questions.length);
   if (loaded) {
     return (
       <div>
         <h3>room has been taken by:</h3>
         <div>
           {roomQuestions[0].users.map((val, j) => {
-            console.log(val);
+            // console.log(val);
 
             return (
               <h4>
-                name: {val.user} score:{val.score}
+                name: {val.user} score:{val.score}/
+                {roomQuestions[0].questions.length}
               </h4>
             );
           })}

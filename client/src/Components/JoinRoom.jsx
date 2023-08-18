@@ -73,6 +73,7 @@ export default function JoinRoom() {
       })
     );
   };
+  console.log(userid);
   const goToAcc = () => {
     history("/Acc", { state: { id: userid } });
   };
