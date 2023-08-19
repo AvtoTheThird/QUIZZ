@@ -55,13 +55,15 @@ export default function JoinRoom() {
         });
       }
     });
-    console.log(x);
+    console.log(userid);
     const id = roomQuestions[1]._id;
+    const username = userid;
     Axios.post("http://localhost:3001/takenQuizz", {
       id: id,
       choosenAnswers: answers,
       roomid: roomID,
       score: x,
+      username: username,
     }).then(
       history("/Results", {
         state: {

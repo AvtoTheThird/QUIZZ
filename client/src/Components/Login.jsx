@@ -8,16 +8,6 @@ export default function Login() {
   const [passwrord, setPasswrord] = useState("");
   const history = useNavigate();
 
-  // const submit = () => {
-  //   const history = useNavigate();
-
-  //   Axios.post("http://localhost:3001/loginUser", {
-  //     email,
-  //     passwrord,
-  //   }).then((response) => {
-  //     console.log(response.data);
-  //   });
-  // };
   async function submit(e) {
     e.preventDefault();
 
@@ -47,16 +37,18 @@ export default function Login() {
   return (
     <div className="login">
       <h1>Login to your account</h1>
+      <p>username/email</p>
       <input
         placeholder="mail"
         type="text"
         onChange={(event) => {
           setEmail(event.target.value);
         }}
-      />
+      />{" "}
+      <p>passwprd</p>
       <input
         placeholder="password"
-        type="text"
+        type="password"
         onChange={(event) => {
           setPasswrord(event.target.value);
         }}

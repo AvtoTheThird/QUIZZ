@@ -14,10 +14,17 @@ app.use(cors());
 
 app.post("/RegisterUser", async (req, res) => {
   console.log(req.body);
-  const user = req.body;
-  const newUser = await new UserModel(user);
-  await newUser.save();
-  res.json(newUser);
+
+  try {
+    const user = req.body;
+    const newUser = await new UserModel(user);
+    await newUser.save();
+    res.json(1);
+  } catch (err) {
+    res.json(2);
+
+    console.log(err);
+  }
 });
 
 app.post("/createRoom", async (req, res) => {
@@ -144,11 +151,15 @@ app.post("/takenQuizz", async (req, res) => {
   const choosenAnswers = req.body.choosenAnswers;
   const score = req.body.score;
 
+  const username = req.body.username;
+
   const usersSubdocument = {
     user: req.body.id,
     choosenAnswers: choosenAnswers,
     score: score,
+    username: username,
   };
+  console.log(usersSubdocument);
 
   try {
     const updatedRoom = await roomModel.findByIdAndUpdate(
@@ -162,7 +173,7 @@ app.post("/takenQuizz", async (req, res) => {
       return;
     }
 
-    console.log("Room updated with user and choosenAnswers:", updatedRoom);
+    // console.log("Room updated with user and choosenAnswers:", updatedRoom);
   } catch (err) {
     console.log(err);
   }

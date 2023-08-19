@@ -14,6 +14,7 @@ export default function Results() {
   const goToAcc = () => {
     history("/Acc", { state: { id: userid } });
   };
+
   let x = 0;
   useEffect(() => {
     setScore(x);

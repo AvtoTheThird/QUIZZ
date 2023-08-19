@@ -28,10 +28,12 @@ export default function RoomOverview() {
             // console.log(val);
 
             return (
-              <h4>
-                name: {val.user} score:{val.score}/
-                {roomQuestions[0].questions.length}
-              </h4>
+              <div className="results">
+                <h4>
+                  name: {val.username} score:{val.score}/
+                  {roomQuestions[0].questions.length}
+                </h4>
+              </div>
             );
           })}
         </div>

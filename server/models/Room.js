@@ -32,6 +32,7 @@ const roomSchema = new mongoose.Schema({
       user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       choosenAnswers: { type: Array },
       score: { type: Number },
+      username: { type: String },
     },
   ],
   numberOfAllowedAttempts: { type: Number },
