@@ -12,6 +12,11 @@ mongoose.connect(
 app.use(express.json());
 app.use(cors());
 
+
+app.post("/", async (req, res) => {
+res.json("post post")
+   console.log("post post");
+});
 app.post("/RegisterUser", async (req, res) => {
   console.log(req.body);
 
