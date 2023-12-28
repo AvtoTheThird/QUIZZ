@@ -48,7 +48,7 @@ export default function CreateRoom() {
 
   useEffect(() => {
     const email = location.state.id;
-    Axios.post("http://localhost:3001/getUserId", {
+    Axios.post("https://avtos-quizz-app.onrender.com/getUserId", {
       email,
     }).then((res) => {
       setUserID(res.data);
@@ -91,7 +91,7 @@ export default function CreateRoom() {
     setNOAA(e.target.value);
   };
   const sendData = () => {
-    Axios.post("http://localhost:3001/createRoom", {
+    Axios.post("https://avtos-quizz-app.onrender.com/createRoom", {
       numberOfAllowedAttempts: NOAA,
       showCorrectAnsswersOnSubmit: SCAOS,
       owner: userID,

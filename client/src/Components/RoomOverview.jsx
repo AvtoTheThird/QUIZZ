@@ -11,7 +11,7 @@ export default function RoomOverview() {
   const roomName = location.state.roomName;
   useEffect(() => {
     const joinId = location.state.id;
-    Axios.post("http://localhost:3001/getQuestions", {
+    Axios.post("https://avtos-quizz-app.onrender.com/getQuestions", {
       joinId,
     }).then((res) => {
       setRoomQuestions(res.data);

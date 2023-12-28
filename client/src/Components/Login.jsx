@@ -12,7 +12,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      await Axios.post("http://localhost:3001/loginUser", {
+      await Axios.post("https://avtos-quizz-app.onrender.com/loginUser", {
         email,
         passwrord,
       })

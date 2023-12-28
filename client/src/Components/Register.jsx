@@ -11,7 +11,7 @@ function Register() {
   const [passwrord, setPasswrord] = useState("");
 
   const sendData = () => {
-    Axios.post("http://localhost:3001/RegisterUser", {
+    Axios.post("https://avtos-quizz-app.onrender.com/RegisterUser", {
       email,
       passwrord,
       name,

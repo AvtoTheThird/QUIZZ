@@ -18,7 +18,7 @@ export default function JoinRoom() {
   // loaded? arr = new Array(roomQuestions[0].questions.length):
   useEffect(() => {
     const joinId = location.state.id;
-    Axios.post("http://localhost:3001/getQuestions", {
+    Axios.post("https://avtos-quizz-app.onrender.com/getQuestions", {
       joinId,
     }).then((res) => {
       setRoomQuestions(res.data);
@@ -58,7 +58,7 @@ export default function JoinRoom() {
     console.log(userid);
     const id = roomQuestions[1]._id;
     const username = userid;
-    Axios.post("http://localhost:3001/takenQuizz", {
+    Axios.post("https://avtos-quizz-app.onrender.com/takenQuizz", {
       id: id,
       choosenAnswers: answers,
       roomid: roomID,

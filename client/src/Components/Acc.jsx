@@ -17,7 +17,7 @@ export default function Acc() {
   useEffect(() => {
     // console.log("asdasd");
     const email = location.state.id;
-    Axios.post("http://localhost:3001/getUserRooms", {
+    Axios.post("https://avtos-quizz-app.onrender.com/getUserRooms", {
       email,
     }).then((res) => {
       setUsersRooms(res.data);
@@ -26,7 +26,7 @@ export default function Acc() {
   }, []);
   // console.log(usersRooms);
   const joinRoom = () => {
-    Axios.post("http://localhost:3001/checkRoom", { joinId, id }).then(
+    Axios.post("https://avtos-quizz-app.onrender.com/checkRoom", { joinId, id }).then(
       (res) => {
         console.log(res.data);
         if (res.data == 1) {
@@ -47,7 +47,7 @@ export default function Acc() {
 
   const deleteRoom = (id, name) => {
     console.log(id);
-    Axios.delete(`http://localhost:3001/deleteRoom/${id}`)
+    Axios.delete(`https://avtos-quizz-app.onrender.com/deleteRoom/${id}`)
       .then((res) => {
         if (res.data == 1) {
           alert(`room ${name} has been deleted succesfully`);
