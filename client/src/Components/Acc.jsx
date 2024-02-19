@@ -3,6 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import DelIcon from "../img/del.webp";
+import DetIcon from "../img/details.png";
+
 export default function Acc() {
   const history = useNavigate();
   const location = useLocation();
@@ -26,18 +29,19 @@ export default function Acc() {
   }, []);
   // console.log(usersRooms);
   const joinRoom = () => {
-    Axios.post("https://avtos-quizz-app.onrender.com/checkRoom", { joinId, id }).then(
-      (res) => {
-        console.log(res.data);
-        if (res.data == 1) {
-          history("/JoinRoom", { state: { id: joinId, userId: id } });
-        } else if (res.data == 2) {
-          alert("number Of Allowed Attempts exausted");
-        } else {
-          alert("wrong ID");
-        }
+    Axios.post("https://avtos-quizz-app.onrender.com/checkRoom", {
+      joinId,
+      id,
+    }).then((res) => {
+      console.log(res.data);
+      if (res.data == 1) {
+        history("/JoinRoom", { state: { id: joinId, userId: id } });
+      } else if (res.data == 2) {
+        alert("number Of Allowed Attempts exausted");
+      } else {
+        alert("wrong ID");
       }
-    );
+    });
   };
   console.log(joinId, id);
 
@@ -63,19 +67,27 @@ export default function Acc() {
   };
   return (
     <div>
-      {" "}
+      <div className="corner-text">
+        <h3>test room id: 65d33c16a2e749be0836d6d8</h3>
+      </div>{" "}
       <h1>hello {location.state.id}</h1>
       <div className="acc-info">
         {" "}
         <h1>your rooms</h1>
         {usersRooms.map((val) => (
-          <h3 key={val._id}>
+          <h3 className="room-info" key={val._id}>
             {val.name}: {val._id}
-            <button onClick={() => deleteRoom(val._id, val.name)}>
-              delete
+            <button
+              className="empty-button"
+              onClick={() => deleteRoom(val._id, val.name)}
+            >
+              <img className="small-icons" src={DelIcon} alt="" />
             </button>
-            <button onClick={() => goToDetails(val._id, val.name)}>
-              details
+            <button
+              className="empty-button"
+              onClick={() => goToDetails(val._id, val.name)}
+            >
+              <img className="small-icons" src={DetIcon} alt="details" />
             </button>
           </h3>
         ))}

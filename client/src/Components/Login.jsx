@@ -56,7 +56,6 @@ export default function Login() {
       <button className="submit-button" onClick={submit}>
         Login
       </button>
-      {/* <input type="submit" onClick={submit} /> */}
       <p>
         Not a member yet? register <a href="/Register">Here</a>
       </p>

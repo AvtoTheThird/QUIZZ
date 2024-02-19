@@ -22,7 +22,7 @@ export default function RoomOverview() {
   if (loaded) {
     return (
       <div>
-        <h3>room has been taken by:</h3>
+        <h3>quiz has been taken by:</h3>
         <div>
           {roomQuestions[0].users.map((val, j) => {
             // console.log(val);

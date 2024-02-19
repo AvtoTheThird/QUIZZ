@@ -181,7 +181,9 @@ export default function CreateRoom() {
             ))}
           </div>
           {data[i].answers.length > 2 ? (
-            <button onClick={() => deleteAnswer(i)}>remove answer</button>
+            <button className="button-27" onClick={() => deleteAnswer(i)}>
+              remove answer
+            </button>
           ) : null}
           <button className="button-27" onClick={() => addAnswer(i)}>
             Add answer
@@ -194,7 +196,7 @@ export default function CreateRoom() {
       <button className="submit-button" onClick={sendData}>
         submit
       </button>
-      <p>{JSON.stringify(data)}</p>
+      {/* <p>{JSON.stringify(data)}</p> */}
     </div>
   );
 }
