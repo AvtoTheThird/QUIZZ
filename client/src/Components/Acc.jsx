@@ -67,7 +67,7 @@ export default function Acc() {
   };
   return (
     <div>
-      <div className="corner-text">
+      <div>
         <h3>test room id: 65d33c16a2e749be0836d6d8</h3>
       </div>{" "}
       <h1>hello {location.state.id}</h1>

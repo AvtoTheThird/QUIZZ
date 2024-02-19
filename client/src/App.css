@@ -48,6 +48,7 @@ nav {
   height: 30px;
 }
 .room-info {
+  padding: 0px 15px;
   display: flex;
   justify-content: center;
 }
@@ -142,7 +143,6 @@ input[type="password"] {
 .login {
   margin: auto;
   width: 50%;
-  width: 800px;
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -194,7 +194,6 @@ input[type="password"] {
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   margin: auto;
   width: 50%;
-  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -207,7 +206,6 @@ input[type="password"] {
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   margin: auto;
   width: 50%;
-  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -267,4 +265,31 @@ img {
 }
 .incorrect {
   background-color: red;
+}
+@media only screen and (max-width: 600px) {
+  .acc-info {
+    width: auto;
+    height: auto;
+  }
+  .room-info {
+    padding-bottom: 2rem;
+  }
+  .join-a-room {
+    width: auto;
+  }
+  .create-a-room {
+    width: auto;
+  }
+  .results {
+    width: auto;
+  }
+  .register {
+    width: 90vw;
+  }
+  .login {
+    width: auto;
+  }
+  .join-room {
+    width: auto;
+  }
 }

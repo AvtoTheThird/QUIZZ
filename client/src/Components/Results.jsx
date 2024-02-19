@@ -88,7 +88,7 @@ export default function Results() {
             your score is:{x}/{roomQuestions[0].questions.length}
           </h2>
           <button onClick={goToAcc}>
-            <a href="/Acc">acc</a>
+            <a href="/Acc">Go back</a>
           </button>
         </div>
       )}
